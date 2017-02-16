@@ -115,7 +115,7 @@ open class LoginsSynchronizer: IndependentRecordSynchronizer, Synchronizer {
             let uploaded = Set(result.success)
             return storage.markAsDeleted(uploaded.intersection(deleted)) >>> { storage.markAsSynchronized(uploaded.intersection(modified), modified: lastModified ?? lastTimestamp) }
         }
-        
+
         return uploadRecords(records,
                              lastTimestamp: lastTimestamp,
                              storageClient: storageClient,
